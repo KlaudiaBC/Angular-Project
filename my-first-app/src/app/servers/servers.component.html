@@ -1,18 +1,26 @@
 <label>Server Name</label>
-<!--<input-->
-  <!--type="text"-->
-  <!--class="form-control"-->
-  <!--(input)="onUpdateServerName($event)">-->
+<!-- <input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"> -->
+  <!-- a $ with 'event' is the reserved variable name when using event binding -->
 <input
   type="text"
   class="form-control"
   [(ngModel)]="serverName">
 <!--<p>{{ serverName }}</p>-->
+
 <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
   (click)="onCreateServer()">Add Server</button>
 <!--<p [innerText]="allowNewServer"></p>-->
 <!--<p>{{ serverCreationStatus }}</p>-->
+
 <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+
+<!-- Servers is the property defined in the .ts file,
+  the * before ngFor means this is a STRUCTURAL directive,
+  ngFor loop through all the elements in "Servers" array 
+  and assign the individual element to this dinamic server variable -->
 <app-server *ngFor="let server of servers"></app-server>

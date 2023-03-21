@@ -1,1 +1,11 @@
-<p>Server Component</p>
+<p
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}"
+>{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
+
+<!-- ngStyle set a background color based on the function getColor which is located in .ts file
+    and checks if status is online/offline, then set the assigned color,
+    it is a multiple data binding that allows for dynamic styling -->
+
+<!-- ngClass will be apply only in case if serverStatus is set to 'online',
+    the class properties are defined in .ts file -->
